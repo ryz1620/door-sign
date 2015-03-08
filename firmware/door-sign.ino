@@ -16,7 +16,7 @@ void setup()
 
     // Placeholder text before we recieve first update
     lcd->setCursor(0,0);
-    lcd->print("Alex is at:");
+    lcd->print("Ryan is at:");
 
     // Register the Spark cloud functions
     Spark.function("update", update);
