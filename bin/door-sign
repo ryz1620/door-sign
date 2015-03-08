@@ -7,22 +7,18 @@ require 'active_support/all'
 
 # Array of Google Calendar Names to check
 CALENDARS = {
-  'School' => 'alexforey.com_pkbcsa4uk7jtog8tkj65hndpn8@group.calendar.google.com',
-  'Home' => 'alexforey.com_g0l2pjg9tbevhr066glf4ub6mc@group.calendar.google.com',
-  'Work' => 'alexforey.com_d51bdglmg2o9t0nk86ce8vcqik@group.calendar.google.com',
-  'SPS Film' => 'ki1vv5ieoeljjtvh7ihumje7go@group.calendar.google.com',
-  'Lessons' => 'alexforey.com_9rcvmgk971lv19biuqku4bla98@group.calendar.google.com'
+  'Location' => 'avl75lbpj7d8tcqj86pqe7fp60@group.calendar.google.com'
 }
 
 def calendar(id)
   cal = Google::Calendar.new(
-    :client_id     => ENV['CLIENT_ID'],
-    :client_secret => ENV['CLIENT_SECRET'],
+    :client_id     => ENV['679851513310-jvg7a15vmp3pi6s77urcjo06du4nuck6.apps.googleusercontent.com'],
+    :client_secret => ENV['6Oq6xHDC0gbeA8iCqjO3wBep'],
     :calendar      => id,
     :redirect_url  => "urn:ietf:wg:oauth:2.0:oob" # this is what Google uses for 'applications'
   )
 
-  cal.login_with_refresh_token(ENV['REFRESH_TOKEN'])
+  cal.login_with_refresh_token(ENV['1/4unLuIBNwHh-RBxuFvp4qIh5M8bl0Veril4NMSxWGo4ME'])
 
   return cal
 end
@@ -78,10 +74,10 @@ end
 # Did we end up with an event?
 if event
   # Yes, so build the payload with "|" between each part
-  payload = "Alex is at:|#{event[:event].title}|#{event[:event].location}|(#{event[:cal]} Calendar)"
+  payload = "Ryan is at:|#{event[:event].title}|#{event[:event].location}|(#{event[:cal]} Calendar)"
 else
   # No, so say we're not busy
-  payload = "Alex is currently| | Not busy| "
+  payload = "Ryan is currently| | Not busy| "
 end
 
 # Initalise the core
