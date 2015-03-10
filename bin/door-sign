@@ -81,7 +81,7 @@ else
 end
 
 # Initalise the core
-core = RubySpark::Core.new(ENV['SPARK_ID'], ENV['SPARK_TOKEN'])
+core = RubySpark::Core.new(ENV['53ff6c066667574848262367'], ENV['494c679e71bf51243640b05d4cd69b7158bcbbe5'])
 
 # Send the text to the core
 core.function("update", payload)
