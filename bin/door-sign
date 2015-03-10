@@ -6,18 +6,17 @@ require 'ruby_spark'
 require 'active_support/all'
 
 # Array of Google Calendar Names to check
-CALENDARS = {
-  'Main'     => 'ryz1620@gmail.com'}
+CALENDARS = {'Main' => 'ryz1620@gmail.com' }
 
 def calendar(id)
   cal = Google::Calendar.new(
-    :client_id     => ENV['679851513310-jvg7a15vmp3pi6s77urcjo06du4nuck6.apps.googleusercontent.com'],
-    :client_secret => ENV['6Oq6xHDC0gbeA8iCqjO3wBep'],
+    :client_id     => ENV['CLIENT_ID'],
+    :client_secret => ENV['CLIENT_SECRET'],
     :calendar      => id,
-    :redirect_url  => "urn:ietf:wg:oauth:2.0:oob" # this is what Google uses for 'applications'
-)
+    :redirect_url  => 'urn:ietf:wg:oauth:2.0:oob' # this is what Google uses for 'applications'
+  )
 
-  cal.login_with_refresh_token(ENV['1/4unLuIBNwHh-RBxuFvp4qIh5M8bl0Veril4NMSxWGo4ME'])
+  cal.login_with_refresh_token(ENV['REFRESH_TOKEN'])
 
   return cal
 end
@@ -80,7 +79,7 @@ else
 end
 
 # Initalise the core
-core = RubySpark::Core.new(ENV['53ff6c066667574848262367'], ENV['494c679e71bf51243640b05d4cd69b7158bcbbe5'])
+core = RubySpark::Core.new(ENV['SPARK_ID'], ENV['SPARK_TOKEN'])
 
 # Send the text to the core
 core.function("update", payload)
