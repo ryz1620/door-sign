@@ -7,8 +7,7 @@ require 'active_support/all'
 
 # Array of Google Calendar Names to check
 CALENDARS = {
-  'Location' => 'avl75lbpj7d8tcqj86pqe7fp60@group.calendar.google.com'
-}
+  'Location' => 'avl75lbpj7d8tcqj86pqe7fp60@group.calendar.google.com'}
 
 def calendar(id)
   cal = Google::Calendar.new(
@@ -16,7 +15,7 @@ def calendar(id)
     :client_secret => ENV['6Oq6xHDC0gbeA8iCqjO3wBep'],
     :calendar      => id,
     :redirect_url  => "urn:ietf:wg:oauth:2.0:oob" # this is what Google uses for 'applications'
-  )
+)
 
   cal.login_with_refresh_token(ENV['1/4unLuIBNwHh-RBxuFvp4qIh5M8bl0Veril4NMSxWGo4ME'])
 
