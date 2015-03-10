@@ -1,15 +1,15 @@
 require 'rubygems'
 require 'google_calendar'
 
-if ENV['679851513310-jvg7a15vmp3pi6s77urcjo06du4nuck6.apps.googleusercontent.com']
-  client_id = ENV['679851513310-jvg7a15vmp3pi6s77urcjo06du4nuck6.apps.googleusercontent.com']
+if ENV['CLIENT_ID']
+  client_id = ENV['CLIENT_ID']
 else
   puts "Enter your client id"
   client_id = $stdin.gets.chomp
 end
 
-if ENV['6Oq6xHDC0gbeA8iCqjO3wBep']
-  client_secret = ENV['6Oq6xHDC0gbeA8iCqjO3wBep']
+if ENV['CLIENT_SECRET']
+  client_secret = ENV['CLIENT_SECRET']
 else
   puts "Enter your client secret"
   client_secret = $stdin.gets.chomp
@@ -21,9 +21,9 @@ calendar_id = $stdin.gets.chomp
 
 
 # Create an instance of the calendar.
-cal = Google::Calendar.new(:client_id     => 679851513310-jvg7a15vmp3pi6s77urcjo06du4nuck6.apps.googleusercontent.com,
-                           :client_secret => 6Oq6xHDC0gbeA8iCqjO3wBep,
-                           :calendar      => avl75lbpj7d8tcqj86pqe7fp60@group.calendar.google.com,
+cal = Google::Calendar.new(:client_id     => client_id,
+                           :client_secret => client_secret,
+                           :calendar      => calendar_id,
                            :redirect_url  => "urn:ietf:wg:oauth:2.0:oob" # this is what Google uses for 'applications'
                            )
 
