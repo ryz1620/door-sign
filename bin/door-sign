@@ -6,7 +6,8 @@ require 'ruby_spark'
 require 'active_support/all'
 
 # Array of Google Calendar Names to check
-CALENDARS = {'Main' => 'ryz1620@gmail.com' }
+CALENDARS = {'Main' => 'ryz1620@gmail.com'
+  'Location' => 'avl75lbpj7d8tcqj86pqe7fp60@group.calendar.google.com'}
 
 def calendar(id)
   cal = Google::Calendar.new(
